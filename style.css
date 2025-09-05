@@ -6,20 +6,20 @@ body {
     transition: background-color 0.5s, color 0.5s; 
 }
 .dark-mode { 
-    background-color: #ff0000; 
-    color: #00fff2; 
+    background-color: #181818; 
+    color: #ffffff; 
 }
 #app-container { 
-    max-width: 60px; 
+    max-width: 600px; 
     margin: auto; 
     background: white; 
     padding: 20px; 
-    border-radius: 45px; 
+    border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1); 
     transition: background-color 0.5s; 
 }
 .dark-mode #app-container { 
-    background-color: #c500f6; 
+    background-color: #464646; 
 }
 #new-note-input { 
     width: 80%; 
@@ -35,10 +35,7 @@ body {
     border-radius: 4px; 
     cursor: pointer; 
 }
-#add-note-button:disabled { 
-    background-color: #aaa; 
-    cursor: not-allowed; 
-}
+
 #notes-container { 
     margin-top: 20px; 
     display: flex; 

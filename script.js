@@ -3,8 +3,9 @@ const addButton = document.getElementById('add-note-button');
 const notesContainer = document.getElementById('notes-container');
 const toggleThemeButton = document.getElementById('toggle-theme-button');
 const body = document.body;
-const colors = ['note-yellow'];
+const colors = ['note-yellow','note-pink','note-blue'];
 
+//Esta funcion crea la estructura de la nota con soculo y el boton de eliminar.
 function createNoteElement(text, colorClass) {
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('note', colorClass); 
@@ -18,8 +19,9 @@ function createNoteElement(text, colorClass) {
     return noteDiv;
 }
 
+// Esta funcion recupear las notas que estan guardadas en localStorage y las vuelve a mostrar en pantalla
 function loadNotes() {
-    const storedNotes = [];
+    const storedNotes = localStorage.getItem('notes');
     console.log(storedNotes);
     if (storedNotes) {
         const notes = JSON.parse(storedNotes);
@@ -30,6 +32,7 @@ function loadNotes() {
     }
 }
 
+//Esta funcion aplica el tema que el usuario usó la última vez que usó la página
 function setInitialTheme() {
     const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
     if (isDarkMode) {
@@ -89,8 +92,8 @@ addButton.addEventListener('click', () => {
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         const newNote = createNoteElement(noteText, randomColor);
         notesContainer.appendChild(newNote);
-        const newNoteErr = createNoteElement(noteText, randomColor);
-        notesContainer.appendChild(newNoteErr);
+        //const newNoteErr = createNoteElement(noteText, randomColor);
+        //notesContainer.appendChild(newNoteErr);
         noteInput.value = '';
         addButton.disabled = true;
         saveNotes();
