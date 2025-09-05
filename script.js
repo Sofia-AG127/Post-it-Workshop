@@ -32,6 +32,18 @@ function loadNotes() {
     }
 }
 
+//Esta funcion se encarga de guardar ñas notas en el localStorage para que salgan al cargar la página
+function saveNotes() {
+    const notes = [];
+    document.querySelectorAll('.note').forEach(note => {
+        notes.push({
+            text: note.textContent.replace('x', '').trim(),
+            color: colors.find(c => note.classList.contains(c))
+        });
+    });
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
 //Esta funcion aplica el tema que el usuario usó la última vez que usó la página
 function setInitialTheme() {
     const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
